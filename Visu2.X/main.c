@@ -33,11 +33,10 @@ int main(void) {
     
  LCD_Initialize();
  CG_Build();
- LCD_PutChar(0x01);
- LCD_PutChar(0x01);
- LCD_PutChar(0x01);
+ //LCD_PutChar(0x01);
+ //LCD_PutChar(0x01);
  //LCD_PutString("PANKI IS KING   DEUS VULT", 25);
- 
+ LCD_PutChar(0x00);
     while(1)
   {
         LED1 = ON;

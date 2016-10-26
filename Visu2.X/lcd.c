@@ -52,6 +52,15 @@ CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
 #define LCD_COMMAND_ROW_0_HOME          0x80
 #define LCD_COMMAND_ROW_1_HOME          0xC0
 
+#define LCD_ADDR1                 0x40
+#define LCD_ADDR2                 0x48
+#define LCD_ADDR3                 0x50
+#define LCD_ADDR4                 0x58
+#define LCD_ADDR5                 0x60
+#define LCD_ADDR6                 0x68
+#define LCD_ADDR7                 0x70
+#define LCD_ADDR8                 0x78
+
 /* Private Functions *************************************************/
 static void LCD_CarriageReturn ( void ) ;
 static void LCD_ShiftCursorLeft ( void ) ;
@@ -399,7 +408,7 @@ void LCD_CursorEnable ( bool enable )
 }
 
 void CG_Build(){
-	LCD_SendCommand(0x48, LCD_F_INSTR);
+	LCD_SendCommand(LCD_ADDR1, LCD_F_INSTR);
     LCD_SendData(0x00);
     LCD_SendData(0x04);
     LCD_SendData(0x0A);
@@ -408,5 +417,8 @@ void CG_Build(){
     LCD_SendData(0x0A);
     LCD_SendData(0x04);
     LCD_SendData(0x00);
+    LCD_CarriageReturn();
     return;
 }
+
+
