@@ -410,13 +410,54 @@ void LCD_CursorEnable ( bool enable )
 void CG_Build(){
 	LCD_SendCommand(LCD_ADDR1, LCD_F_INSTR);
     LCD_SendData(0x00);
-    LCD_SendData(0x04);
-    LCD_SendData(0x0A);
-    LCD_SendData(0x0A);
-    LCD_SendData(0x15);
-    LCD_SendData(0x0A);
-    LCD_SendData(0x04);
     LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    
+    LCD_SendCommand(LCD_ADDR2, LCD_F_INSTR);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0xFF);
+    
+    LCD_SendCommand(LCD_ADDR3, LCD_F_INSTR);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0xFF);
+    LCD_SendData(0x00);
+    LCD_SendData(0xFF);
+
+    LCD_SendCommand(LCD_ADDR4, LCD_F_INSTR);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0x00);
+    LCD_SendData(0xFF);
+    LCD_SendData(0x00);
+    LCD_SendData(0xFF);
+    LCD_SendData(0x00);
+    LCD_SendData(0xFF); 
+    
+    LCD_SendCommand(LCD_ADDR5, LCD_F_INSTR);
+    LCD_SendData(0x00);
+    LCD_SendData(0xFF);
+    LCD_SendData(0x00);
+    LCD_SendData(0xFF);
+    LCD_SendData(0x00);
+    LCD_SendData(0xFF);
+    LCD_SendData(0x00);
+    LCD_SendData(0xFF);    
+    
     LCD_CarriageReturn();
     return;
 }

@@ -17,6 +17,11 @@
 
 #include <p24fj128ga010.h>
 
+#define BAR0  0x00
+#define BAR1  0x01
+#define BAR2  0x02
+#define BAR3  0x03
+#define BAR4  0x04
 
 
 
@@ -35,23 +40,35 @@ int main(void) {
  CG_Build();
  //LCD_PutChar(0x01);
  //LCD_PutChar(0x01);
- //LCD_PutString("PANKI IS KING   DEUS VULT", 25);
- LCD_PutChar(0x00);
+ //LCD_PutString("HALLO GITTLI", 12);
+ 
+
+
+ 
+
+ 
+ 
     while(1)
   {
         LED1 = ON;
+        LCD_PutChar(BAR0);
         __delay_ms(350);
         LED2 = ON;
+        LCD_PutChar(BAR1);
         __delay_ms(350);
         LED3 = ON;
+        LCD_PutChar(BAR2);
         __delay_ms(350);
         LED4 = ON;
+
         __delay_ms(350);
         LED5 = ON;
+        LCD_PutChar(BAR3);
         __delay_ms(350);
         LED6 = ON;
         __delay_ms(350);
         LED7 = ON;
+         LCD_PutChar(BAR4);
         __delay_ms(350);
         LED8 = ON;
         __delay_ms(350);
@@ -63,6 +80,7 @@ int main(void) {
         LED6 = OFF;
         LED7 = OFF;
         LED8 = OFF;
+        LCD_ClearScreen();
         __delay_ms(350);
     }
   return 0;
