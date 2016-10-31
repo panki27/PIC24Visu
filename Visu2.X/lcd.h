@@ -100,3 +100,7 @@ void LCD_ClearScreen(void);
 *
 ********************************************************************/
 void LCD_CursorEnable(bool enable);
+
+
+
+void CG_Build( void );

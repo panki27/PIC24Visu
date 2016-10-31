@@ -26,6 +26,10 @@
  * Revision history: 
  */
 
+#include <libpic30.h>
+#include "lcd.h"
+#include "xc.h"
+
 
 //LED CONFIG
 #define ON 1
