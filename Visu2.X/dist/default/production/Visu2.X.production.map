@@ -50,8 +50,6 @@ Archive member included because of file (symbol)
 
 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-elf.a(SetDCOC1PWM_v1.o)
                               build/default/production/main.o (_SetDCOC1PWM_v1)
-c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-elf.a(OpenOC1_v1.o)
-                              build/default/production/main.o (_OpenOC1_v1)
 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
                               (__resetPRI)
 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
@@ -66,13 +64,13 @@ Program Memory  [Origin = 0x200, Length = 0x155fc]
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200                0xcc           0x132  (306)
-.text                        0x2cc               0x4ac           0x702  (1794)
-.init.delay32                0x778                0x1c            0x2a  (42)
-.dinit                       0x794                 0x8             0xc  (12)
-.shared.dinit                0x79c                 0x2             0x3  (3)
+.text                        0x200                0xbe           0x11d  (285)
+.text                        0x2be               0x528           0x7bc  (1980)
+.init.delay32                0x7e6                0x1c            0x2a  (42)
+.dinit                       0x802                 0x8             0xc  (12)
+.shared.dinit                0x80a                 0x2             0x3  (3)
 
-                 Total program memory used (bytes):          0x86d  (2157) 1%
+                 Total program memory used (bytes):          0x912  (2322) 1%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0xfc]
@@ -104,37 +102,35 @@ External Symbols in Program Memory (by address):
 
                   0x000200                  __resetPRI
                   0x00022c                  __psv_init
-                  0x00023c                  __data_init
                   0x00023c                  __data_init_standard
+                  0x00023c                  __data_init
                   0x0002a8                  __DefaultInterrupt
                   0x0002ac                  _SetDCOC1PWM_v1
-                  0x0002be                  _OpenOC1_v1
-                  0x0002cc                  _LCD_Initialize
-                  0x000308                  _LCD_PutString
-                  0x000342                  _LCD_PutChar
-                  0x0003b6                  _LCD_ClearScreen
-                  0x0004c6                  _LCD_CursorEnable
-                  0x0004ea                  _CG_Build
-                  0x0006c8                  _main
-                  0x000778                  ___delay32
+                  0x0002be                  _LCD_Initialize
+                  0x0002fa                  _LCD_PutString
+                  0x000334                  _LCD_PutChar
+                  0x0003a8                  _LCD_ClearScreen
+                  0x0004b8                  _LCD_CursorEnable
+                  0x0004dc                  _CG_Build
+                  0x0006ba                  _main
+                  0x0007e6                  ___delay32
 
 External Symbols in Program Memory (by name):
 
-                  0x0004ea                  _CG_Build
-                  0x0003b6                  _LCD_ClearScreen
-                  0x0004c6                  _LCD_CursorEnable
-                  0x0002cc                  _LCD_Initialize
-                  0x000342                  _LCD_PutChar
-                  0x000308                  _LCD_PutString
-                  0x0002be                  _OpenOC1_v1
+                  0x0004dc                  _CG_Build
+                  0x0003a8                  _LCD_ClearScreen
+                  0x0004b8                  _LCD_CursorEnable
+                  0x0002be                  _LCD_Initialize
+                  0x000334                  _LCD_PutChar
+                  0x0002fa                  _LCD_PutString
                   0x0002ac                  _SetDCOC1PWM_v1
                   0x0002a8                  __DefaultInterrupt
-                  0x000778                  ___delay32
+                  0x0007e6                  ___delay32
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0006c8                  _main
+                  0x0006ba                  _main
 
 Memory Configuration
 
@@ -171,7 +167,7 @@ LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200         0xcc
+.text             0x000200         0xbe
  *(.init)
  .init            0x000200         0x3c c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
                   0x000200                  __resetPRI
@@ -191,8 +187,6 @@ LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libfx-elf.a
  *(.lib*)
  .libperi         0x0002ac         0x12 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-elf.a(SetDCOC1PWM_v1.o)
                   0x0002ac                  _SetDCOC1PWM_v1
- .libperi         0x0002be          0xe c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-elf.a(OpenOC1_v1.o)
-                  0x0002be                  _OpenOC1_v1
 
 usercode
  *(usercode)
@@ -206,21 +200,21 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000        0x80b
+.debug_info       0x000000        0x87c
  *(.debug_info)
- .debug_info      0x000000        0x3e7 build/default/production/main.o
- .debug_info      0x0003e7        0x424 build/default/production/lcd.o
+ .debug_info      0x000000        0x458 build/default/production/main.o
+ .debug_info      0x000458        0x424 build/default/production/lcd.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x1c3
+.debug_abbrev     0x000000        0x1d4
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0x90 build/default/production/main.o
- .debug_abbrev    0x000090        0x133 build/default/production/lcd.o
+ .debug_abbrev    0x000000         0xa1 build/default/production/main.o
+ .debug_abbrev    0x0000a1        0x133 build/default/production/lcd.o
 
-.debug_line       0x000000        0x25a
+.debug_line       0x000000        0x273
  *(.debug_line)
- .debug_line      0x000000         0xc8 build/default/production/main.o
- .debug_line      0x0000c8        0x192 build/default/production/lcd.o
+ .debug_line      0x000000         0xe1 build/default/production/main.o
+ .debug_line      0x0000e1        0x192 build/default/production/lcd.o
 
 .debug_frame      0x000000        0x194
  *(.debug_frame)
@@ -844,7 +838,7 @@ LOAD shared_data_init
                   0x00007e         0x2b build/default/production/lcd.o
 
 __c30_signature
-                  0x0000a9         0x2a
+                  0x0000a9         0x24
  __c30_signature
                   0x0000a9          0x6 build/default/production/main.o
  __c30_signature
@@ -852,13 +846,11 @@ __c30_signature
  __c30_signature
                   0x0000b5          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-elf.a(SetDCOC1PWM_v1.o)
  __c30_signature
-                  0x0000bb          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-elf.a(OpenOC1_v1.o)
+                  0x0000bb          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x0000c1          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
+                  0x0000c1          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
  __c30_signature
-                  0x0000c7          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
- __c30_signature
-                  0x0000cd          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
+                  0x0000c7          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
 
 .nbss               0x0800          0x2
  .nbss              0x0800          0x2 build/default/production/lcd.o
@@ -870,23 +862,23 @@ __c30_signature
 .config_IESO      0x0157fc          0x2
  .config_IESO     0x0157fc          0x2 build/default/production/main.o
 
-.text             0x0002cc        0x4ac
- .text            0x0002cc        0x3fc build/default/production/lcd.o
-                  0x0002cc                  _LCD_Initialize
-                  0x000308                  _LCD_PutString
-                  0x000342                  _LCD_PutChar
-                  0x0003b6                  _LCD_ClearScreen
-                  0x0004c6                  _LCD_CursorEnable
-                  0x0004ea                  _CG_Build
- .text            0x0006c8         0xb0 build/default/production/main.o
-                  0x0006c8                  _main
+.text             0x0002be        0x528
+ .text            0x0002be        0x3fc build/default/production/lcd.o
+                  0x0002be                  _LCD_Initialize
+                  0x0002fa                  _LCD_PutString
+                  0x000334                  _LCD_PutChar
+                  0x0003a8                  _LCD_ClearScreen
+                  0x0004b8                  _LCD_CursorEnable
+                  0x0004dc                  _CG_Build
+ .text            0x0006ba        0x12c build/default/production/main.o
+                  0x0006ba                  _main
 
-.init.delay32     0x000778         0x1c
- .init.delay32    0x000778         0x1c c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
-                  0x000778                  ___delay32
+.init.delay32     0x0007e6         0x1c
+ .init.delay32    0x0007e6         0x1c c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
+                  0x0007e6                  ___delay32
 
-.dinit            0x000794          0x8
- .dinit           0x000794          0x8 data_init
+.dinit            0x000802          0x8
+ .dinit           0x000802          0x8 data_init
 
-.shared.dinit     0x00079c          0x2
- .shared.dinit    0x00079c          0x2 shared_data_init
+.shared.dinit     0x00080a          0x2
+ .shared.dinit    0x00080a          0x2 shared_data_init

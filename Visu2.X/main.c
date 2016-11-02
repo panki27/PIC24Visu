@@ -6,9 +6,6 @@
  * Created on 19. Oktober 2016, 13:41
  */
 
-//Output compare to up and low
-
-
 //Selfdefined
 #define USE_OR_MASK
 #include <outcompare.h>
@@ -20,7 +17,6 @@
 #include "header.h"
 
 #include <p24fj128ga010.h>
-
 
 #define BAR0  0x00
 #define BAR1  0x01
@@ -37,10 +33,15 @@ int main(void) {
  //SetPulseOC1(400, 800);
  
     
- OpenOC1(OC_IDLE_CON | OC_TIMER2_SRC | OC_PWM_FAULT_PIN_DISABLE, 0x80,0xFF);
- //ConfigIntOC1(OC_INT_OFF);
+//OpenOC1(OC_IDLE_CON | OC_TIMER2_SRC | OC_PWM_FAULT_PIN_DISABLE, 256,128);
+
+
+ OC1CON = 0x0006; 
  
- T2CON = 0x8010;
+ OC1R = 1000;
+ OC1RS = 2000;
+ //ConfigIntOC1(OC_INT_OFF);
+ T2CON = 0x8000;
  
  //while (1){}
  LEDPIN1 = OUTPUT;
@@ -59,54 +60,84 @@ int main(void) {
      while(1){}
      
  }*/
-  
+ int i = 0;
     while(1)
   {     
-        SetDCOC1PWM(20);
-        LED1 = ON;
-        LCD_PutChar(BAR0);
-        __delay_ms(350);
+        SetDCOC1PWM(200);
+        __delay_ms(200);
+        SetDCOC1PWM(0);
+        __delay_ms(200);
+        SetDCOC1PWM(200);
+        __delay_ms(200);
+        SetDCOC1PWM(0);
+        __delay_ms(200);
+        SetDCOC1PWM(200);
+        __delay_ms(400);
         
-        
-        SetDCOC1PWM(80);
-        LED2 = ON;
-        LCD_PutChar(BAR1);
-        __delay_ms(350);
-        
-        
-        SetDCOC1PWM(128);
-        LED3 = ON;
-        LCD_PutChar(BAR2);
-        __delay_ms(350);
-        
-        
-        
-        SetDCOC1PWM(190);
-        LED4 = ON;
-        __delay_ms(350);
-        
-        
-        SetDCOC1PWM(255);
-        LED5 = ON;
-        LCD_PutChar(BAR3);
-        __delay_ms(350);
-        
+        SetDCOC1PWM(0);
+        __delay_ms(200);
         
         SetDCOC1PWM(600);
+        __delay_ms(200);
+        
+        SetDCOC1PWM(0);
+        __delay_ms(100);
+        
+        SetDCOC1PWM(800);
+        __delay_ms(200);
+        
+        for(i = 0; i< 2000; i++){
+            SetDCOC1PWM(i);
+            __delay_ms(10);
+        }
+        
+        SetDCOC1PWM(200);
+        //OC1R = 200;
+        LED1 = ON;
+        LCD_PutChar(BAR0);
+        __delay_ms(1000);
+        
+        //OC1R = 400;
+        SetDCOC1PWM(400);
+        LED2 = ON;
+        LCD_PutChar(BAR1);
+        __delay_ms(1000);
+        
+        
+        //OC1R = 600;
+        SetDCOC1PWM(800);
+        LED3 = ON;
+        LCD_PutChar(BAR2);
+        __delay_ms(1000);
+        
+        
+        //OC1R = 800;
+        SetDCOC1PWM(1000);
+        LED4 = ON;
+        __delay_ms(1000);
+        
+        
+        SetDCOC1PWM(1200);
+        LED5 = ON;
+        LCD_PutChar(BAR3);
+        __delay_ms(1000);
+        
+        
+        SetDCOC1PWM(1400);
         LED6 = ON;
-        __delay_ms(350);
+        __delay_ms(1000);
         
         
-        SetDCOC1PWM(7000);
+        SetDCOC1PWM(1600);
         
         LED7 = ON;
         LCD_PutChar(BAR4);
-        __delay_ms(350);
+        __delay_ms(1000);
         
         
         SetDCOC1PWM(1800);
         LED8 = ON;
-        __delay_ms(350);
+        __delay_ms(1000);
         
         LED1 = OFF;
         LED2 = OFF;
