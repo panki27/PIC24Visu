@@ -65,12 +65,13 @@ Program Memory  [Origin = 0x200, Length = 0x155fc]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0xbe           0x11d  (285)
-.text                        0x2be               0x528           0x7bc  (1980)
-.init.delay32                0x7e6                0x1c            0x2a  (42)
-.dinit                       0x802                 0x8             0xc  (12)
-.shared.dinit                0x80a                 0x2             0x3  (3)
+.const                       0x2be                 0x6             0x9  (9)
+.text                        0x2c4               0x492           0x6db  (1755)
+.init.delay32                0x756                0x1c            0x2a  (42)
+.dinit                       0x772                 0x8             0xc  (12)
+.shared.dinit                0x77a                 0x2             0x3  (3)
 
-                 Total program memory used (bytes):          0x912  (2322) 1%
+                 Total program memory used (bytes):          0x83a  (2106) 1%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0xfc]
@@ -106,31 +107,33 @@ External Symbols in Program Memory (by address):
                   0x00023c                  __data_init
                   0x0002a8                  __DefaultInterrupt
                   0x0002ac                  _SetDCOC1PWM_v1
-                  0x0002be                  _LCD_Initialize
-                  0x0002fa                  _LCD_PutString
-                  0x000334                  _LCD_PutChar
-                  0x0003a8                  _LCD_ClearScreen
-                  0x0004b8                  _LCD_CursorEnable
-                  0x0004dc                  _CG_Build
-                  0x0006ba                  _main
-                  0x0007e6                  ___delay32
+                  0x0002c4                  _LCD_Initialize
+                  0x000300                  _LCD_PutString
+                  0x00033a                  _LCD_PutChar
+                  0x0003ae                  _LCD_ClearScreen
+                  0x0004be                  _LCD_CursorEnable
+                  0x0004e2                  _CG_Build
+                  0x0006c0                  _PlayTone
+                  0x0006d8                  _main
+                  0x000756                  ___delay32
 
 External Symbols in Program Memory (by name):
 
-                  0x0004dc                  _CG_Build
-                  0x0003a8                  _LCD_ClearScreen
-                  0x0004b8                  _LCD_CursorEnable
-                  0x0002be                  _LCD_Initialize
-                  0x000334                  _LCD_PutChar
-                  0x0002fa                  _LCD_PutString
+                  0x0004e2                  _CG_Build
+                  0x0003ae                  _LCD_ClearScreen
+                  0x0004be                  _LCD_CursorEnable
+                  0x0002c4                  _LCD_Initialize
+                  0x00033a                  _LCD_PutChar
+                  0x000300                  _LCD_PutString
+                  0x0006c0                  _PlayTone
                   0x0002ac                  _SetDCOC1PWM_v1
                   0x0002a8                  __DefaultInterrupt
-                  0x0007e6                  ___delay32
+                  0x000756                  ___delay32
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0006ba                  _main
+                  0x0006d8                  _main
 
 Memory Configuration
 
@@ -200,30 +203,30 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000        0x87c
+.debug_info       0x000000        0x789
  *(.debug_info)
- .debug_info      0x000000        0x458 build/default/production/main.o
- .debug_info      0x000458        0x424 build/default/production/lcd.o
+ .debug_info      0x000000        0x365 build/default/production/main.o
+ .debug_info      0x000365        0x424 build/default/production/lcd.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x1d4
+.debug_abbrev     0x000000        0x1f8
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0xa1 build/default/production/main.o
- .debug_abbrev    0x0000a1        0x133 build/default/production/lcd.o
+ .debug_abbrev    0x000000         0xc5 build/default/production/main.o
+ .debug_abbrev    0x0000c5        0x133 build/default/production/lcd.o
 
-.debug_line       0x000000        0x273
+.debug_line       0x000000        0x24c
  *(.debug_line)
- .debug_line      0x000000         0xe1 build/default/production/main.o
- .debug_line      0x0000e1        0x192 build/default/production/lcd.o
+ .debug_line      0x000000         0xba build/default/production/main.o
+ .debug_line      0x0000ba        0x192 build/default/production/lcd.o
 
-.debug_frame      0x000000        0x194
+.debug_frame      0x000000        0x1b0
  *(.debug_frame)
- .debug_frame     0x000000         0x30 build/default/production/main.o
- .debug_frame     0x000030        0x164 build/default/production/lcd.o
+ .debug_frame     0x000000         0x4c build/default/production/main.o
+ .debug_frame     0x00004c        0x164 build/default/production/lcd.o
 
-.debug_str        0x000000         0x13
+.debug_str        0x000000          0xa
  *(.debug_str)
- .debug_str       0x000000         0x13 build/default/production/main.o
+ .debug_str       0x000000          0xa build/default/production/main.o
 
 .debug_loc
  *(.debug_loc)
@@ -232,12 +235,12 @@ __CONFIG1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000         0x98
+                  0x000000         0xa5
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x1b build/default/production/main.o
+                  0x000000         0x28 build/default/production/main.o
  .debug_pubnames
-                  0x00001b         0x7d build/default/production/lcd.o
+                  0x000028         0x7d build/default/production/lcd.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -831,26 +834,26 @@ LOAD data_init
 LOAD shared_data_init
 
 .debug_pubtypes
-                  0x000030         0x79
+                  0x000030         0x5c
  .debug_pubtypes
-                  0x000030         0x4e build/default/production/main.o
+                  0x000030         0x31 build/default/production/main.o
  .debug_pubtypes
-                  0x00007e         0x2b build/default/production/lcd.o
+                  0x000061         0x2b build/default/production/lcd.o
 
 __c30_signature
-                  0x0000a9         0x24
+                  0x00008c         0x24
  __c30_signature
-                  0x0000a9          0x6 build/default/production/main.o
+                  0x00008c          0x6 build/default/production/main.o
  __c30_signature
-                  0x0000af          0x6 build/default/production/lcd.o
+                  0x000092          0x6 build/default/production/lcd.o
  __c30_signature
-                  0x0000b5          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-elf.a(SetDCOC1PWM_v1.o)
+                  0x000098          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-elf.a(SetDCOC1PWM_v1.o)
  __c30_signature
-                  0x0000bb          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
+                  0x00009e          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x0000c1          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
+                  0x0000a4          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
  __c30_signature
-                  0x0000c7          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
+                  0x0000aa          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
 
 .nbss               0x0800          0x2
  .nbss              0x0800          0x2 build/default/production/lcd.o
@@ -862,23 +865,27 @@ __c30_signature
 .config_IESO      0x0157fc          0x2
  .config_IESO     0x0157fc          0x2 build/default/production/main.o
 
-.text             0x0002be        0x528
- .text            0x0002be        0x3fc build/default/production/lcd.o
-                  0x0002be                  _LCD_Initialize
-                  0x0002fa                  _LCD_PutString
-                  0x000334                  _LCD_PutChar
-                  0x0003a8                  _LCD_ClearScreen
-                  0x0004b8                  _LCD_CursorEnable
-                  0x0004dc                  _CG_Build
- .text            0x0006ba        0x12c build/default/production/main.o
-                  0x0006ba                  _main
+.const              0x82be          0x6 load address 0x0002be  
+ .const             0x82be          0x6 build/default/production/main.o
 
-.init.delay32     0x0007e6         0x1c
- .init.delay32    0x0007e6         0x1c c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
-                  0x0007e6                  ___delay32
+.text             0x0002c4        0x492
+ .text            0x0002c4        0x3fc build/default/production/lcd.o
+                  0x0002c4                  _LCD_Initialize
+                  0x000300                  _LCD_PutString
+                  0x00033a                  _LCD_PutChar
+                  0x0003ae                  _LCD_ClearScreen
+                  0x0004be                  _LCD_CursorEnable
+                  0x0004e2                  _CG_Build
+ .text            0x0006c0         0x96 build/default/production/main.o
+                  0x0006c0                  _PlayTone
+                  0x0006d8                  _main
 
-.dinit            0x000802          0x8
- .dinit           0x000802          0x8 data_init
+.init.delay32     0x000756         0x1c
+ .init.delay32    0x000756         0x1c c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
+                  0x000756                  ___delay32
 
-.shared.dinit     0x00080a          0x2
- .shared.dinit    0x00080a          0x2 shared_data_init
+.dinit            0x000772          0x8
+ .dinit           0x000772          0x8 data_init
+
+.shared.dinit     0x00077a          0x2
+ .shared.dinit    0x00077a          0x2 shared_data_init

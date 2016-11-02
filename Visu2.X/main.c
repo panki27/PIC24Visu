@@ -27,6 +27,12 @@
 void OpenOC1(unsigned int config, unsigned int value1, unsigned int value2);
 
 char SetDCOC1PWM(unsigned int dutycycle);
+
+void PlayTone(int freq) {
+  int period = (int) 4000000/freq;
+  PR2 = period;
+}
+
 int main(void) {
 
  //OpenOC1( OC_IDLE_CON & OC_TIMER2_SRC & OC_CONTINUE_PULSE, 800, 400);
@@ -38,8 +44,8 @@ int main(void) {
 
  OC1CON = 0x0006; 
  
- OC1R = 1000;
- OC1RS = 2000;
+ OC1R =  512;
+ OC1RS = 1024;
  //ConfigIntOC1(OC_INT_OFF);
  T2CON = 0x8000;
  
@@ -55,87 +61,61 @@ int main(void) {
     
  LCD_Initialize();
  CG_Build();
- /*if( SetDCOC1PWM(100) == -1){
+ 
+ if( SetDCOC1PWM(512) == -1){
      LCD_PutString("ERROR", 5);
-     while(1){}
-     
- }*/
- int i = 0;
+     while(1){}   
+ }
+
     while(1)
-  {     
-        SetDCOC1PWM(200);
-        __delay_ms(200);
-        SetDCOC1PWM(0);
-        __delay_ms(200);
-        SetDCOC1PWM(200);
-        __delay_ms(200);
-        SetDCOC1PWM(0);
-        __delay_ms(200);
-        SetDCOC1PWM(200);
-        __delay_ms(400);
+  {    
         
-        SetDCOC1PWM(0);
-        __delay_ms(200);
         
-        SetDCOC1PWM(600);
-        __delay_ms(200);
-        
-        SetDCOC1PWM(0);
-        __delay_ms(100);
-        
-        SetDCOC1PWM(800);
-        __delay_ms(200);
-        
-        for(i = 0; i< 2000; i++){
-            SetDCOC1PWM(i);
-            __delay_ms(10);
-        }
-        
-        SetDCOC1PWM(200);
-        //OC1R = 200;
+        PR2 = 9090;
+        __delay_ms(500);
+        PlayTone(329);
+        __delay_ms(500);
+        PlayTone(349);
+        __delay_ms(500);
+        PlayTone(392);
+        __delay_ms(500);
+        PlayTone(440);
+        __delay_ms(500);
+        PlayTone(1);
+        __delay_ms(50);
+        PlayTone(440);
+        __delay_ms(500);
+      /*  PR2 = 10000;
         LED1 = ON;
         LCD_PutChar(BAR0);
         __delay_ms(1000);
         
-        //OC1R = 400;
-        SetDCOC1PWM(400);
+        PR2 = 1000;
         LED2 = ON;
         LCD_PutChar(BAR1);
         __delay_ms(1000);
         
-        
-        //OC1R = 600;
-        SetDCOC1PWM(800);
+        PR2 = 3000;
         LED3 = ON;
         LCD_PutChar(BAR2);
         __delay_ms(1000);
         
-        
-        //OC1R = 800;
-        SetDCOC1PWM(1000);
+        PR2 = 500;
         LED4 = ON;
         __delay_ms(1000);
         
-        
-        SetDCOC1PWM(1200);
+        PR2 = 6000;
         LED5 = ON;
         LCD_PutChar(BAR3);
         __delay_ms(1000);
         
-        
-        SetDCOC1PWM(1400);
         LED6 = ON;
         __delay_ms(1000);
-        
-        
-        SetDCOC1PWM(1600);
         
         LED7 = ON;
         LCD_PutChar(BAR4);
         __delay_ms(1000);
         
-        
-        SetDCOC1PWM(1800);
         LED8 = ON;
         __delay_ms(1000);
         
@@ -148,7 +128,7 @@ int main(void) {
         LED7 = OFF;
         LED8 = OFF;
         LCD_ClearScreen();
-        __delay_ms(350);
+        __delay_ms(350); */
     }
   return 0;
 }
