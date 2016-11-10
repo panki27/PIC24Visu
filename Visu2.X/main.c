@@ -28,7 +28,7 @@ void OpenOC1(unsigned int config, unsigned int value1, unsigned int value2);
 
 char SetDCOC1PWM(unsigned int dutycycle);
 
-void PlayTone(int freq) {
+/* void PlayTone(int freq) {
   int period = (int) 4000000/freq;
   PR2 = period;
 }
@@ -40,7 +40,7 @@ unsigned int note_freq[]={
 65012,65042,65069,65096,65120,65144,65166,65187,65206,65225,65242,65259, // A= 880Hz   (o=6)
 65274,65289,65303,65316,65328,65340,65351,65361,65371,65380,65389,65397, // A= 1.76KHz (o=7)
 65405,65412,65419,65426,65432,65438,65443,65449,65454,65458,65463,65467  // A= 3.52KHz (o=8)
-};
+}; */
 
 int main(void) {
 

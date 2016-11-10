@@ -32,6 +32,12 @@
 // 
 
 //#include <os.h>
+//#include <xc.h>
+//#include <libpic30.h>
+
+#include "main.c"
+
+//#define FCY 4000000
 
 int notefreq[12] = {4186, 4434, 4698, 4978, 5274, 5587, 5919, 6271, 6644, 7040, 7458, 7902};
 
@@ -148,12 +154,17 @@ void play(char *song) {
     }
 
     if (freq) { //CHANGE HERE IOCTL TO PR2, MSLEEP TO DELAY
-      ioctl(1, IOCTL_SOUND, &freq, 4);
+      
+     // PR2 = 4000000/freq;
+      /*ioctl(1, IOCTL_SOUND, &freq, 4);
       msleep(ms * 7 / 8);
       ioctl(1, IOCTL_SOUND, &silence, 4);
-      msleep(ms / 8);
+      msleep(ms / 8);*/
+      //__delay_ms(ms/8);
     } else {
-      msleep(ms);
+      //msleep(ms);
+       //__delay_ms(ms);
+        //__delay32(ms);
     }
   }
 }
