@@ -35,7 +35,8 @@
 //#include <xc.h>
 //#include <libpic30.h>
 
-#include "main.c"
+//#include "main.c"
+#include "header.h"
 
 //#define FCY 4000000
 
@@ -155,7 +156,7 @@ void play(char *song) {
 
     if (freq) { //CHANGE HERE IOCTL TO PR2, MSLEEP TO DELAY
       
-     // PR2 = 4000000/freq;
+     PR2 = 4000000/freq;
       /*ioctl(1, IOCTL_SOUND, &freq, 4);
       msleep(ms * 7 / 8);
       ioctl(1, IOCTL_SOUND, &silence, 4);

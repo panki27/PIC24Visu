@@ -8,13 +8,17 @@
 
 //Selfdefined
 #define USE_OR_MASK
+
+#define SET_CONFIG_BITS
+#include "header.h"
+#undef SET_CONFIG_BITS
+
 #include <outcompare.h>
 #include <timer.h>
 
-#define FOSC 10000000
-#define FCY (FOSC/2)
 
-#include "header.h"
+//#include "header.h"
+#include "lib/rtttl.h"
 
 #include <p24fj128ga010.h>
 
@@ -41,6 +45,8 @@ unsigned int note_freq[]={
 65274,65289,65303,65316,65328,65340,65351,65361,65371,65380,65389,65397, // A= 1.76KHz (o=7)
 65405,65412,65419,65426,65432,65438,65443,65449,65454,65458,65463,65467  // A= 3.52KHz (o=8)
 }; */
+
+char AnotherO[]={"AnotherO:d=16,o=5,b=80:32p,32d#.6,32c#.6,8a#.,8a#.,4a#.,32a#.,a#.,a#.,c#.6,32a#.,4d#.6,32d#.6,32c#.6,8a#.,8a#.,4a#.,32a#.,a#.,a#.,c#.6,32a#.,4d#.6,32d#.6,32c#.6,8a#.,8a#.,4a#.,32a#.,a#.,a#.,c#.6,32a#.,4d#.6,32d#.6,32c#.6,8a#.,8a#.,4a#.,32a#.,a#.,a#.,c#.6,32a#.,4d#6"};
 
 int main(void) {
 
@@ -70,8 +76,10 @@ OC1CON = 0x0006; //set OC1 to PWM Mode
 
     while(1)
   {      
-        PR2 = 9090; //set register of timer to clock/freq
-        __delay_ms(500);
+        play(AnotherO);
+        
+        //PR2 = 9090; //set register of timer to clock/freq
+        
       
       /*  PR2 = 10000;
         LED1 = ON;
