@@ -66,12 +66,12 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0xbe           0x11d  (285)
 .const                       0x2be                 0x6             0x9  (9)
-.text                        0x2c4               0x492           0x6db  (1755)
-.init.delay32                0x756                0x1c            0x2a  (42)
-.dinit                       0x772                 0x8             0xc  (12)
-.shared.dinit                0x77a                 0x2             0x3  (3)
+.text                        0x2c4               0x456           0x681  (1665)
+.init.delay32                0x71a                0x1c            0x2a  (42)
+.dinit                       0x736                 0x8             0xc  (12)
+.shared.dinit                0x73e                 0x2             0x3  (3)
 
-                 Total program memory used (bytes):          0x83a  (2106) 1%
+                 Total program memory used (bytes):          0x7e0  (2016) 1%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0xfc]
@@ -115,7 +115,7 @@ External Symbols in Program Memory (by address):
                   0x0004e2                  _CG_Build
                   0x0006c0                  _PlayTone
                   0x0006d8                  _main
-                  0x000756                  ___delay32
+                  0x00071a                  ___delay32
 
 External Symbols in Program Memory (by name):
 
@@ -128,7 +128,7 @@ External Symbols in Program Memory (by name):
                   0x0006c0                  _PlayTone
                   0x0002ac                  _SetDCOC1PWM_v1
                   0x0002a8                  __DefaultInterrupt
-                  0x000756                  ___delay32
+                  0x00071a                  ___delay32
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
@@ -214,10 +214,10 @@ __CONFIG1
  .debug_abbrev    0x000000         0xc5 build/default/production/main.o
  .debug_abbrev    0x0000c5        0x133 build/default/production/lcd.o
 
-.debug_line       0x000000        0x24c
+.debug_line       0x000000        0x23f
  *(.debug_line)
- .debug_line      0x000000         0xba build/default/production/main.o
- .debug_line      0x0000ba        0x192 build/default/production/lcd.o
+ .debug_line      0x000000         0xad build/default/production/main.o
+ .debug_line      0x0000ad        0x192 build/default/production/lcd.o
 
 .debug_frame      0x000000        0x1b0
  *(.debug_frame)
@@ -868,7 +868,7 @@ __c30_signature
 .const              0x82be          0x6 load address 0x0002be  
  .const             0x82be          0x6 build/default/production/main.o
 
-.text             0x0002c4        0x492
+.text             0x0002c4        0x456
  .text            0x0002c4        0x3fc build/default/production/lcd.o
                   0x0002c4                  _LCD_Initialize
                   0x000300                  _LCD_PutString
@@ -876,16 +876,16 @@ __c30_signature
                   0x0003ae                  _LCD_ClearScreen
                   0x0004be                  _LCD_CursorEnable
                   0x0004e2                  _CG_Build
- .text            0x0006c0         0x96 build/default/production/main.o
+ .text            0x0006c0         0x5a build/default/production/main.o
                   0x0006c0                  _PlayTone
                   0x0006d8                  _main
 
-.init.delay32     0x000756         0x1c
- .init.delay32    0x000756         0x1c c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
-                  0x000756                  ___delay32
+.init.delay32     0x00071a         0x1c
+ .init.delay32    0x00071a         0x1c c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
+                  0x00071a                  ___delay32
 
-.dinit            0x000772          0x8
- .dinit           0x000772          0x8 data_init
+.dinit            0x000736          0x8
+ .dinit           0x000736          0x8 data_init
 
-.shared.dinit     0x00077a          0x2
- .shared.dinit    0x00077a          0x2 shared_data_init
+.shared.dinit     0x00073e          0x2
+ .shared.dinit    0x00073e          0x2 shared_data_init

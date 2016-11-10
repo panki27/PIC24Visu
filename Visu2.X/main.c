@@ -33,23 +33,24 @@ void PlayTone(int freq) {
   PR2 = period;
 }
 
+unsigned int note_freq[]={
+0x0000, // silent
+63441,63559,63670,63775,63874,63967,64055,64138,64217,64291,64360,64426, // A= 220Hz   (o=4)
+64489,64547,64603,64655,64705,64751,64795,64837,64876,64913,64948,64981, // A= 440Hz   (o=5)
+65012,65042,65069,65096,65120,65144,65166,65187,65206,65225,65242,65259, // A= 880Hz   (o=6)
+65274,65289,65303,65316,65328,65340,65351,65361,65371,65380,65389,65397, // A= 1.76KHz (o=7)
+65405,65412,65419,65426,65432,65438,65443,65449,65454,65458,65463,65467  // A= 3.52KHz (o=8)
+};
+
 int main(void) {
 
- //OpenOC1( OC_IDLE_CON & OC_TIMER2_SRC & OC_CONTINUE_PULSE, 800, 400);
- //SetPulseOC1(400, 800);
+OC1CON = 0x0006; //set OC1 to PWM Mode
  
-    
-//OpenOC1(OC_IDLE_CON | OC_TIMER2_SRC | OC_PWM_FAULT_PIN_DISABLE, 256,128);
-
-
- OC1CON = 0x0006; 
- 
- OC1R =  512;
+ OC1R =  512;   //50% dutycycle
  OC1RS = 1024;
- //ConfigIntOC1(OC_INT_OFF);
- T2CON = 0x8000;
  
- //while (1){}
+ T2CON = 0x8000; //configure TMR2 (1:1)
+ 
  LEDPIN1 = OUTPUT;
  LEDPIN2 = OUTPUT;
  LEDPIN3 = OUTPUT;
@@ -59,32 +60,19 @@ int main(void) {
  LEDPIN7 = OUTPUT;
  LEDPIN8 = OUTPUT;
     
- LCD_Initialize();
- CG_Build();
+ LCD_Initialize(); 
+ CG_Build(); // Build custom character set
  
  if( SetDCOC1PWM(512) == -1){
-     LCD_PutString("ERROR", 5);
+     LCD_PutString("ERROR", 5); //if setting duty cycle fails...
      while(1){}   
  }
 
     while(1)
-  {    
-        
-        
-        PR2 = 9090;
+  {      
+        PR2 = 9090; //set register of timer to clock/freq
         __delay_ms(500);
-        PlayTone(329);
-        __delay_ms(500);
-        PlayTone(349);
-        __delay_ms(500);
-        PlayTone(392);
-        __delay_ms(500);
-        PlayTone(440);
-        __delay_ms(500);
-        PlayTone(1);
-        __delay_ms(50);
-        PlayTone(440);
-        __delay_ms(500);
+      
       /*  PR2 = 10000;
         LED1 = ON;
         LCD_PutChar(BAR0);

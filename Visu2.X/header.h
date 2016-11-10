@@ -55,6 +55,10 @@
 #define LED7 LATAbits.LATA6
 #define LED8 LATAbits.LATA7
 
+#define A4 440
+#define constA 1.0594
+
+
 
 // PIC24FJ128GA010 Configuration Bit Settings
 
