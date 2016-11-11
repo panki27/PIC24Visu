@@ -104,3 +104,4 @@ void LCD_CursorEnable(bool enable);
 
 
 void CG_Build( void );
+void CG_Build2( void );

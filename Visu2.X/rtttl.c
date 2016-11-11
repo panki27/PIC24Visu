@@ -38,6 +38,8 @@
 //#include "main.c"
 #include "header.h"
 
+#define __delay_ms(d) \
+  { __delay32( (unsigned long) (((unsigned long long) d)*(FCY)/1000ULL)); }
 //#define FCY 4000000
 
 int notefreq[12] = {4186, 4434, 4698, 4978, 5274, 5587, 5919, 6271, 6644, 7040, 7458, 7902};
@@ -155,16 +157,21 @@ void play(char *song) {
     }
 
     if (freq) { //CHANGE HERE IOCTL TO PR2, MSLEEP TO DELAY
-      
+     
+     //OC1RS = 200;
      PR2 = 4000000/freq;
+     __delay_ms(ms * 7/8);
+     
       /*ioctl(1, IOCTL_SOUND, &freq, 4);
       msleep(ms * 7 / 8);
       ioctl(1, IOCTL_SOUND, &silence, 4);
-      msleep(ms / 8);*/
-      //__delay_ms(ms/8);
+      msleep(ms / 8);*/;
+     __delay_ms(ms/8);
+     PR2 = 0xFFFF;
     } else {
       //msleep(ms);
-       //__delay_ms(ms);
+       //OC1RS = 0;
+      __delay_ms(ms);
         //__delay32(ms);
     }
   }

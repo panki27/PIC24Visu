@@ -409,57 +409,175 @@ void LCD_CursorEnable ( bool enable )
 
 void CG_Build(){
 	LCD_SendCommand(LCD_ADDR1, LCD_F_INSTR);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
+    LCD_SendData(0x03);
+    LCD_SendData(0x04);
+    LCD_SendData(0x0B);
+    LCD_SendData(0x08);
+    LCD_SendData(0x04);
+    LCD_SendData(0x04);
+    LCD_SendData(0x02);
+    LCD_SendData(0x01);
     
     LCD_SendCommand(LCD_ADDR2, LCD_F_INSTR);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0xFF);
+    LCD_SendData(0x18);
+    LCD_SendData(0x04);
+    LCD_SendData(0x1A);
+    LCD_SendData(0x02);
+    LCD_SendData(0x04);
+    LCD_SendData(0x04);
+    LCD_SendData(0x08);
+    LCD_SendData(0x010);
     
     LCD_SendCommand(LCD_ADDR3, LCD_F_INSTR);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0xFF);
-    LCD_SendData(0x00);
-    LCD_SendData(0xFF);
+    LCD_SendData(0x02);
+    LCD_SendData(0x05);
+    LCD_SendData(0x08);
+    LCD_SendData(0x08);
+    LCD_SendData(0x04);
+    LCD_SendData(0x04);
+    LCD_SendData(0x02);
+    LCD_SendData(0x01);
 
     LCD_SendCommand(LCD_ADDR4, LCD_F_INSTR);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0x00);
-    LCD_SendData(0xFF);
-    LCD_SendData(0x00);
-    LCD_SendData(0xFF);
-    LCD_SendData(0x00);
-    LCD_SendData(0xFF); 
+    LCD_SendData(0x08);
+    LCD_SendData(0x14);
+    LCD_SendData(0x02);
+    LCD_SendData(0x02);
+    LCD_SendData(0x04);
+    LCD_SendData(0x04);
+    LCD_SendData(0x08);
+    LCD_SendData(0x10); 
     
     LCD_SendCommand(LCD_ADDR5, LCD_F_INSTR);
-    LCD_SendData(0x00);
-    LCD_SendData(0xFF);
-    LCD_SendData(0x00);
-    LCD_SendData(0xFF);
-    LCD_SendData(0x00);
-    LCD_SendData(0xFF);
-    LCD_SendData(0x00);
-    LCD_SendData(0xFF);    
+    LCD_SendData(0x03);
+    LCD_SendData(0x06);
+    LCD_SendData(0x04);
+    LCD_SendData(0x0C);
+    LCD_SendData(0x08);
+    LCD_SendData(0x18);
+    LCD_SendData(0x18);
+    LCD_SendData(0x18);    
+    
+    LCD_SendCommand(LCD_ADDR6, LCD_F_INSTR);
+    LCD_SendData(0x18);
+    LCD_SendData(0x0C);
+    LCD_SendData(0x08);
+    LCD_SendData(0x06);
+    LCD_SendData(0x02);
+    LCD_SendData(0x03);
+    LCD_SendData(0x03);
+    LCD_SendData(0x03); 
+    
+    LCD_SendCommand(LCD_ADDR7, LCD_F_INSTR);
+    LCD_SendData(0x07);
+    LCD_SendData(0x08);
+    LCD_SendData(0x0B);
+    LCD_SendData(0x0B);
+    LCD_SendData(0x0C);
+    LCD_SendData(0x11);
+    LCD_SendData(0x0C);
+    LCD_SendData(0x03); 
+    
+    LCD_SendCommand(LCD_ADDR8, LCD_F_INSTR);
+    LCD_SendData(0x1C);
+    LCD_SendData(0x02);
+    LCD_SendData(0x1A);
+    LCD_SendData(0x1A);
+    LCD_SendData(0x01);
+    LCD_SendData(0x11);
+    LCD_SendData(0x06);
+    LCD_SendData(0x18); 
+    
     
     LCD_CarriageReturn();
     return;
 }
+
+void CG_Build2(void){
+ LCD_SendCommand(LCD_ADDR1, LCD_F_INSTR);
+    LCD_SendData(0x0F);
+    LCD_SendData(0x11);
+    LCD_SendData(0x12);
+    LCD_SendData(0x10);
+    LCD_SendData(0x11);
+    LCD_SendData(0x10);
+    LCD_SendData(0x11);
+    LCD_SendData(0x0F);
+    
+    LCD_SendCommand(LCD_ADDR2, LCD_F_INSTR);
+    LCD_SendData(0x1E);
+    LCD_SendData(0x11);
+    LCD_SendData(0x09);
+    LCD_SendData(0x11);
+    LCD_SendData(0x11);
+    LCD_SendData(0x01);
+    LCD_SendData(0x01);
+    LCD_SendData(0x1E);
+    
+    LCD_SendCommand(LCD_ADDR3, LCD_F_INSTR);
+    LCD_SendData(0x1A);
+    LCD_SendData(0x19);
+    LCD_SendData(0x1F);
+    LCD_SendData(0x0F);
+    LCD_SendData(0x07);
+    LCD_SendData(0x03);
+    LCD_SendData(0x01);
+    LCD_SendData(0x01);
+
+    LCD_SendCommand(LCD_ADDR4, LCD_F_INSTR);
+    LCD_SendData(0x0B);
+    LCD_SendData(0x13);
+    LCD_SendData(0x1F);
+    LCD_SendData(0x1E);
+    LCD_SendData(0x1C);
+    LCD_SendData(0x18);
+    LCD_SendData(0x10);
+    LCD_SendData(0x10); 
+    
+    LCD_SendCommand(LCD_ADDR5, LCD_F_INSTR);
+    LCD_SendData(0x03);
+    LCD_SendData(0x06);
+    LCD_SendData(0x04);
+    LCD_SendData(0x0C);
+    LCD_SendData(0x08);
+    LCD_SendData(0x18);
+    LCD_SendData(0x18);
+    LCD_SendData(0x18);    
+    
+    LCD_SendCommand(LCD_ADDR6, LCD_F_INSTR);
+    LCD_SendData(0x18);
+    LCD_SendData(0x0C);
+    LCD_SendData(0x08);
+    LCD_SendData(0x06);
+    LCD_SendData(0x02);
+    LCD_SendData(0x03);
+    LCD_SendData(0x03);
+    LCD_SendData(0x03); 
+    
+    LCD_SendCommand(LCD_ADDR7, LCD_F_INSTR);
+    LCD_SendData(0x07);
+    LCD_SendData(0x08);
+    LCD_SendData(0x0B);
+    LCD_SendData(0x0B);
+    LCD_SendData(0x0C);
+    LCD_SendData(0x11);
+    LCD_SendData(0x0C);
+    LCD_SendData(0x03); 
+    
+    LCD_SendCommand(LCD_ADDR8, LCD_F_INSTR);
+    LCD_SendData(0x1C);
+    LCD_SendData(0x02);
+    LCD_SendData(0x1A);
+    LCD_SendData(0x1A);
+    LCD_SendData(0x01);
+    LCD_SendData(0x11);
+    LCD_SendData(0x06);
+    LCD_SendData(0x18); 
+    
+    
+    LCD_CarriageReturn();
+    return;   
+}
+
 
 
